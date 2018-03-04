@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "Gif It",
+    "version": "0.0.1",
+
+    "description": "Search context menu selection on giphy.",
+    "homepage_url": "https://github.com/gritchou/giphit",
+    "icons": {
+        "128": "icons/owl.png"
+    },
+
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+
+    "permissions": [
+        "activeTab",
+        "contextMenus"
+    ]
+
+}

@@ -1,0 +1,16 @@
+{
+  "name": "gifit",
+  "version": "0.0.1",
+  "description": "Search context menu selection on giphy.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gritchou/gifit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gritchou/gifit/issues"
+  },
+  "homepage": "https://github.com/gritchou/gifit",
+  "devDependencies": {
+    "@types/chrome": "0.0.59"
+  }
+}
