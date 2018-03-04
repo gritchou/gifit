@@ -2,7 +2,7 @@ const baseUrl = 'https://giphy.com/search/';
 
 const transformSelection = (selection) => selection.replace(' ', '-');
 
-const getUri = (selection) => `${baseUrl}/` + transformSelection(selection);
+const getUri = (selection) => baseUrl + transformSelection(selection);
 
 const gifit = (info, tab) => {
     if (info.menuItemId === 'gifit') {
