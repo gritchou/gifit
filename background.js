@@ -37,9 +37,15 @@ const gifit = (info, tab) => {
 	}
 };
 
+const testFunc = () => {
+    chrome.storage.sync.get('colour', (res) => {
+        console.log(res.colour);
+    });
+}
+
 chrome.contextMenus.create({
 	id: 'gifit',
 	title: 'Copy related gif to clipboard',
 	contexts: ['selection'],
-	onclick: gifit,
+	onclick: testFunc,
 });
