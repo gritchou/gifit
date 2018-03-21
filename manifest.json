@@ -2,8 +2,7 @@
     "manifest_version": 2,
     "name": "Gif It",
     "version": "0.0.1",
-
-    "description": "Search context menu selection on giphy.",
+    "description": "Display gif in popup",
     "homepage_url": "https://github.com/gritchou/giphit",
     "icons": {
         "128": "icons/owl.png"
@@ -16,8 +15,13 @@
     },
 
     "permissions": [
-        "activeTab",
-        "contextMenus"
-    ]
+        "contextMenus",
+        "storage"
+    ],
+
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    }
 
 }
