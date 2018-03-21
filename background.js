@@ -1,6 +1,6 @@
 const baseUrl = 'https://giphy.com/search/';
 
-const GIPHY_KEY = '';
+const GIPHY_KEY = '58qN5PSXUFubU7GFzt8W8Uih1sKTGquL';
 const GIPHY_API = 'https://api.giphy.com';
 
 const transformSelection = (selection) => selection.replace(' ', '-');
@@ -28,16 +28,17 @@ const processRequest = (query) => {
             })
                 .then((api) => fetch(api))
                 .then((response) => response.json())
-                .then((json) => json.data[0].bitly_url)
+                .then((json) => json.data.slice(0, 5).map((gif) => gif.images.original.url))
             ;
         } else {
             apiPromise = fetch(`${GIPHY_API}/v1/gifs/random?api_key=${GIPHY_KEY}`)
                 .then((response) => response.json())
-                .then((json) => json.data.bitly_url)
+                .then((json) => [json.data.image_url])
             ;
         }
-        apiPromise.then((gifUrl) => {
-			addToClipBoard(gifUrl);
+        apiPromise.then((gifs) => {
+            // addToClipBoard(gifUrl);
+            sendGifs(gifs);
         });
     });
 };
@@ -49,9 +50,13 @@ const gifit = (info, tab) => {
 	}
 };
 
+const sendGifs = (gifs) => {
+    chrome.runtime.sendMessage({ gifs });
+}
+
 chrome.contextMenus.create({
 	id: 'gifit',
-	title: 'Copy related gif to clipboard',
+	title: 'Add gifs to popup',
 	contexts: ['selection'],
 	onclick: gifit,
 });
